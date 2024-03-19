@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118ef81f5c506d548ae979c7df7d67ba, type: 3}
+  m_Name: Data
+  m_EditorClassIdentifier: 
+  audioclips:
+    dogbarkSfx: {fileID: 8300000, guid: 5f8ec88d6e453344b9864d1fc3a75d67, type: 3}
+    catJump: {fileID: 8300000, guid: 8360636458b2ee4449cabbad541bdea9, type: 3}
+    catDeath: {fileID: 8300000, guid: df8a2df0f928caa48951e81f86848537, type: 3}
+    catSlide: {fileID: 8300000, guid: a2aa8e0e7536b59469d98e2bf7aab83a, type: 3}
+    catHurt: {fileID: 8300000, guid: eb1df3f0bee2a514194f2ff021bbcaa2, type: 3}
+    coinCollectSfx: {fileID: 8300000, guid: d1a40fb19748f3643a4509acae29d924, type: 3}
+    gameplayStartTipSfx: {fileID: 8300000, guid: b1803b32175ed8a44af87f3c314115aa,
+      type: 3}
+    pressStartSfx: {fileID: 8300000, guid: b55d1f70115c97f4d91a030e2b027bdb, type: 3}
+    playAgainSfx: {fileID: 8300000, guid: bae3a49a4edd05248af49d8868b38907, type: 3}
