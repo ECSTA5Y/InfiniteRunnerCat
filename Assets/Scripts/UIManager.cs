@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class UIManager : MonoBehaviour {
 
     public Image[] lives;
-    public Text coinText;
-    public Text scoreText;
+    public TextMeshProUGUI coinText;
+    public TextMeshProUGUI scoreText;
     
     public void UpdateLives(int currentLives) {
         for (int i = 0; i < lives.Length; i++) {

@@ -41,7 +41,6 @@ public class Player : MonoBehaviour {
         boxCollider = GetComponent<BoxCollider>();
         boxColliderSize = boxCollider.size;
         animator.Play("runStart");
-        SoundManager.Instance.PlayGameplayStartTipSfx();
     }
 
     void Update()
@@ -213,7 +212,6 @@ public class Player : MonoBehaviour {
 
             restartButton.SetActive(true);
             SoundManager.Instance.PlayCatDeathSfx();
-            SoundManager.Instance.Invoke(nameof(SoundManager.Instance.PlayPlayAgainTipSfx),1f);
             //SoundManager.Instance.PlayPlayAgainTipSfx();
             isDead = true;
 

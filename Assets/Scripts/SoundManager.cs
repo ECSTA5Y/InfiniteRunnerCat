@@ -48,16 +48,4 @@ public class SoundManager : MonoBehaviour
     {
         sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.coinCollectSfx);
     }
-    public void PlayGameplayStartTipSfx()
-    {
-        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.gameplayStartTipSfx);
-    }
-    public void PlayPressStartTipSfx()
-    {
-        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.pressStartSfx);
-    }
-    public void PlayPlayAgainTipSfx()
-    {
-        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.playAgainSfx);
-    }
 }
