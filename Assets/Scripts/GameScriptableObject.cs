@@ -13,7 +13,4 @@ public struct SoundData
     public AudioClip catSlide;
     public AudioClip catHurt;
     public AudioClip coinCollectSfx;
-    public AudioClip gameplayStartTipSfx;
-    public AudioClip pressStartSfx;
-    public AudioClip playAgainSfx;
 }
