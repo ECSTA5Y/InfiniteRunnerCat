@@ -36021,7 +36021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768aa4549a6e8c940b8e79343e10e88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curveStrength: 0
+  curveStrength: 0.005
 --- !u!1001 &964940879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75973,7 +75973,7 @@ MonoBehaviour:
   - {fileID: 5918939651147317977, guid: a96ddb8badcab1c4a9c05a8413ca9a54, type: 3}
   - {fileID: 1847890221967301235, guid: 21267a5dda053164ab0ecb87dbf5b81a, type: 3}
   coinsNumber: {x: 0, y: 0}
-  obstaclesNumber: {x: 10, y: 30}
+  obstaclesNumber: {x: 10, y: 20}
 --- !u!65 &2000426401
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -77826,7 +77826,7 @@ MonoBehaviour:
   - {fileID: 5918939651147317977, guid: a96ddb8badcab1c4a9c05a8413ca9a54, type: 3}
   - {fileID: 1847890221967301235, guid: 21267a5dda053164ab0ecb87dbf5b81a, type: 3}
   coinsNumber: {x: 0, y: 0}
-  obstaclesNumber: {x: 10, y: 30}
+  obstaclesNumber: {x: 10, y: 20}
 --- !u!1 &2057124095
 GameObject:
   m_ObjectHideFlags: 0
