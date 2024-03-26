@@ -48,4 +48,8 @@ public class SoundManager : MonoBehaviour
     {
         sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.coinCollectSfx);
     }
+    public void PlayClickSfx()
+    {
+        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.clickSfx);
+    }
 }

@@ -7,6 +7,7 @@ public class GameScriptableObject : ScriptableObject
 [System.Serializable]
 public struct SoundData
 {
+    public AudioClip clickSfx;
     public AudioClip dogbarkSfx;
     public AudioClip catJump;
     public AudioClip catDeath;

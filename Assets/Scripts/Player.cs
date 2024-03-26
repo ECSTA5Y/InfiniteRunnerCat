@@ -242,7 +242,7 @@ public class Player : MonoBehaviour
             SoundManager.Instance.PlayCatDeathSfx();
             //SoundManager.Instance.PlayPlayAgainTipSfx();
             isDead = true;
-
+            LeaderboardManager.Instance.AddScore((int)score);
         }
         else
         {
