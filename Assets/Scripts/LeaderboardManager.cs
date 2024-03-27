@@ -55,6 +55,7 @@ public class LeaderboardManager : MonoBehaviour
         AuthenticationService.Instance.SignedIn += () =>
         {
             Debug.Log("Signed in as: " + AuthenticationService.Instance.PlayerId);
+            StartNameGetter();
         };
         AuthenticationService.Instance.SignInFailed += s =>
         {
@@ -64,16 +65,17 @@ public class LeaderboardManager : MonoBehaviour
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
-    public void RenamePlayer()
+    public async void RenamePlayer(string str)
     {
-        if (playerName != null)
-            AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
+       await AuthenticationService.Instance.UpdatePlayerNameAsync(str);
     }
     public async void AddScore(int score)
     {
 
         var scoreResponse = await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardId, score);
         Debug.Log(JsonConvert.SerializeObject(scoreResponse));
+        if (PlayerPrefs.GetInt("BestScore", 0) < score)
+            PlayerPrefs.SetInt("BestScore", score);
     }
 
     public async void GetScores()
@@ -91,17 +93,20 @@ public class LeaderboardManager : MonoBehaviour
         await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardId, 0);
         var scoreResponseCurrent =
           await LeaderboardsService.Instance.GetPlayerScoreAsync(LeaderboardId);
+        PlayerPrefs.SetInt("BestScore", (int)scoreResponseCurrent.Score);
         int currentRank = scoreResponseCurrent.Rank;
         var scoresResponse =
           await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId);
         for (int i = 0; i < scoresResponse.Results.Count; i++)
         {
+            if (i > 4) continue;
             ScoreItem si = Instantiate(scoreItemPrefab, scoreItemParent);
             si.SetScoreItem(scoresResponse.Results[i].PlayerName, scoresResponse.Results[i].Rank, scoresResponse.Results[i].Score);
             if (i == currentRank)
             {
                 playerInTopTen = true;
                 si.SetAsCurrentPlayer();
+                MainMenuController.instance.UpdateUsernameUI(scoresResponse.Results[i].PlayerName);
             }
         }
         if (!playerInTopTen)
@@ -109,7 +114,14 @@ public class LeaderboardManager : MonoBehaviour
             ScoreItem si = Instantiate(scoreItemPrefab, scoreItemParent);
             si.SetScoreItem(scoreResponseCurrent.PlayerName, scoreResponseCurrent.Rank, scoreResponseCurrent.Score);
             si.SetAsCurrentPlayer();
+                MainMenuController.instance.UpdateUsernameUI(scoreResponseCurrent.PlayerName);
         }
+    }
+    async void StartNameGetter()
+    {
+        var scoreResponseCurrent =
+          await LeaderboardsService.Instance.GetPlayerScoreAsync(LeaderboardId);
+        MainMenuController.instance.UpdateUsernameUI(scoreResponseCurrent.PlayerName);
     }
     public async void GetPaginatedScores()
     {

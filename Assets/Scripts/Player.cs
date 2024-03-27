@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-
+    public static Player Instance;
     public GameObject model;
     public SkinnedMeshRenderer[] modelMeshRenderer;
     public float runSpeed = 10f;
@@ -34,8 +34,10 @@ public class Player : MonoBehaviour
     private int coins;
     private float score;
     public bool isDead;
-
-    public GameObject restartButton;
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -45,8 +47,12 @@ public class Player : MonoBehaviour
         boxColliderSize = boxCollider.size;
         animator.Play("runStart");
         SoundManager.Instance.PlayGameplayLoop();
+        Invoke(nameof(GetPlayerScore),10f);
     }
-
+    void GetPlayerScore()
+    {
+        LeaderboardManager.Instance.GetPlayerScore();
+    }
     void Update()
     {
         HandleScore();
@@ -238,8 +244,8 @@ public class Player : MonoBehaviour
             runSpeed = 0;
             animator.SetBool("Dead", true);
             // Call gameover
-
-            restartButton.SetActive(true);
+            
+            uiManager.ShowGameEndScreen((int)score);
             SoundManager.Instance.PlayCatDeathSfx();
             SoundManager.Instance.StopGameplayLoop();
             isDead = true;
@@ -251,7 +257,13 @@ public class Player : MonoBehaviour
             StartCoroutine(Blinking());
         }
     }
-
+    public void GamePaused(bool state)
+    {
+        if(state)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
+    }
     IEnumerator Blinking()
     {
         float timer = 0;
@@ -292,9 +304,4 @@ public class Player : MonoBehaviour
         runSpeed *= 1.15f;
         runSpeed = (runSpeed >= maxSpeed) ? maxSpeed : runSpeed;
     }
-    public void Restart()
-    {
-        SceneManager.LoadScene(0);
-    }
-
 }

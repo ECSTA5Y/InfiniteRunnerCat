@@ -5,16 +5,16 @@ public class ScoreItem : MonoBehaviour
 {
     public TextMeshProUGUI nameTxt, rankTxt, scoreTxt;
     public Image bgImage;
-    public Color currentPlayerColor;
+    public Sprite currentPlayerSprite;
     public void SetScoreItem(string name, int rank, double score)
     {
-        nameTxt.text = name.Length >= 17 ? name.Substring(0, 17) : name;
+        nameTxt.text = name.Length >= 18 ? name.Substring(0, 18) : name;
         rankTxt.text = "#" + (rank + 1).ToString();
         scoreTxt.text = score.ToString();
     }
     public void SetAsCurrentPlayer()
     {
-        bgImage.color = currentPlayerColor;
-        nameTxt.text = "YOU";
+        bgImage.sprite = currentPlayerSprite;
+        //nameTxt.text = "YOU";
     }
 }
