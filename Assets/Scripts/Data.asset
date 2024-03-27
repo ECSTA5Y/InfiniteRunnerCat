@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: Data
   m_EditorClassIdentifier: 
   audioclips:
-    dogbarkSfx: {fileID: 8300000, guid: 5f8ec88d6e453344b9864d1fc3a75d67, type: 3}
-    catJump: {fileID: 8300000, guid: 8360636458b2ee4449cabbad541bdea9, type: 3}
-    catDeath: {fileID: 8300000, guid: df8a2df0f928caa48951e81f86848537, type: 3}
-    catSlide: {fileID: 8300000, guid: a2aa8e0e7536b59469d98e2bf7aab83a, type: 3}
-    catHurt: {fileID: 8300000, guid: eb1df3f0bee2a514194f2ff021bbcaa2, type: 3}
+    clickSfx: {fileID: 8300000, guid: 89acdb637cc78c5418652a27c65514ba, type: 3}
+    jumpClip: {fileID: 8300000, guid: 682498f6d8947ce459e5fec45c44a91b, type: 3}
+    deathClip: {fileID: 8300000, guid: d3b71c1d2a3a62d478645006a274bc83, type: 3}
+    slideClip: {fileID: 8300000, guid: a2aa8e0e7536b59469d98e2bf7aab83a, type: 3}
+    hurtClip: {fileID: 8300000, guid: 11863c2ef69e20d4199c6cf4c2372ad0, type: 3}
     coinCollectSfx: {fileID: 8300000, guid: 89acdb637cc78c5418652a27c65514ba, type: 3}
-    gameplayStartTipSfx: {fileID: 8300000, guid: b1803b32175ed8a44af87f3c314115aa,
-      type: 3}
-    pressStartSfx: {fileID: 8300000, guid: b55d1f70115c97f4d91a030e2b027bdb, type: 3}
-    playAgainSfx: {fileID: 8300000, guid: bae3a49a4edd05248af49d8868b38907, type: 3}
+    gameStartSfx: {fileID: 8300000, guid: dede5fa0b142bfb42894f7467ca552bb, type: 3}
+    gameplayLoopSfx: {fileID: 8300000, guid: dede5fa0b142bfb42894f7467ca552bb, type: 3}

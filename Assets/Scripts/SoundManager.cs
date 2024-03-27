@@ -15,7 +15,7 @@ public class SoundManager : MonoBehaviour
         else 
             Destroy(gameObject);
     }
-    public AudioSource sfxAudioSource,musicAudioSource;
+    public AudioSource sfxAudioSource,musicAudioSource,gameplayLoopAudioSource;
     public void PauseMusic()
     {
         musicAudioSource.Pause();
@@ -24,25 +24,21 @@ public class SoundManager : MonoBehaviour
     {
         musicAudioSource.Play();
     }
-    public void PlayDogBarkSfx()
-    {
-        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.dogbarkSfx);
-    }
     public void PlayCatJumpSfx()
     {
-        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.catJump);
+        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.jumpClip);
     }
     public void PlayCatSlideSfx()
     {
-        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.catSlide);
+        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.slideClip);
     }
     public void PlayCatHurtSfx()
     {
-        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.catHurt);
+        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.hurtClip);
     }
     public void PlayCatDeathSfx()
     {
-        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.catDeath);
+        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.deathClip);
     }
     public void PlayCoinCollectSfx()
     {
@@ -51,5 +47,19 @@ public class SoundManager : MonoBehaviour
     public void PlayClickSfx()
     {
         sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.clickSfx);
+    }
+    public void PlayGameStartSfx()
+    {
+        sfxAudioSource.PlayOneShot(PersistentData.Instance.data.audioclips.gameStartSfx);
+    }
+    public void PlayGameplayLoop()
+    {
+        gameplayLoopAudioSource.loop = true;
+        gameplayLoopAudioSource.clip = PersistentData.Instance.data.audioclips.gameplayLoopSfx;
+        gameplayLoopAudioSource.Play();
+    }
+    public void StopGameplayLoop()
+    {
+        gameplayLoopAudioSource.Stop();
     }
 }

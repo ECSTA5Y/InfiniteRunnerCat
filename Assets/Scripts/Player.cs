@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public SkinnedMeshRenderer[] modelMeshRenderer;
     public float runSpeed = 10f;
     public float minSpeed = 10f;
-    public float maxSpeed = 30f;
+    public float maxSpeed = 100f;
     public float laneChangeSpeed = 10f;
     public float jumpSpeed = 5f;
     public float jumpLength = 7.5f;
@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
         boxCollider = GetComponent<BoxCollider>();
         boxColliderSize = boxCollider.size;
         animator.Play("runStart");
+        SoundManager.Instance.PlayGameplayLoop();
     }
 
     void Update()
@@ -240,7 +241,7 @@ public class Player : MonoBehaviour
 
             restartButton.SetActive(true);
             SoundManager.Instance.PlayCatDeathSfx();
-            //SoundManager.Instance.PlayPlayAgainTipSfx();
+            SoundManager.Instance.StopGameplayLoop();
             isDead = true;
             LeaderboardManager.Instance.AddScore((int)score);
         }
@@ -260,7 +261,9 @@ public class Player : MonoBehaviour
         bool enabled = false;
         isInvisible = true;
         yield return new WaitForSeconds(0.5f);
-        runSpeed = minSpeed;
+
+
+        //runSpeed = minSpeed;
 
         while (timer < invisibleTime && isInvisible)
         {

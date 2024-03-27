@@ -85,6 +85,7 @@ public class LeaderboardManager : MonoBehaviour
     public async void ShowScoresUI(Transform scoreItemParent)
     {
         bool playerInTopTen = false;
+
         for (int i = 0; i < scoreItemParent.childCount; i++)
             Destroy(scoreItemParent.GetChild(i).gameObject);
         await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardId, 0);

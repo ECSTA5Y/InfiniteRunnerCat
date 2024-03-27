@@ -8,10 +8,11 @@ public class GameScriptableObject : ScriptableObject
 public struct SoundData
 {
     public AudioClip clickSfx;
-    public AudioClip dogbarkSfx;
-    public AudioClip catJump;
-    public AudioClip catDeath;
-    public AudioClip catSlide;
-    public AudioClip catHurt;
+    public AudioClip jumpClip;
+    public AudioClip deathClip;
+    public AudioClip slideClip;
+    public AudioClip hurtClip;
     public AudioClip coinCollectSfx;
+    public AudioClip gameStartSfx;
+    public AudioClip gameplayLoopSfx;
 }
