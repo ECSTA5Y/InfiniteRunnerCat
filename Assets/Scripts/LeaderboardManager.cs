@@ -153,7 +153,7 @@ public class LeaderboardManager : MonoBehaviour
        await LeaderboardsService.Instance.GetPlayerScoreAsync(LeaderboardId);
         Debug.Log(JsonConvert.SerializeObject(scoreResponse));
         // Customize your message with the score
-        string tweetText = "My score is: " + scoreResponse.Score.ToString() + " in this awesome game! #Unity #GameDev";
+        string tweetText = "My score is: " + scoreResponse.Score.ToString() + " in this awesome game! #RunningDaddy #Unity #GameDev";
 
         // Create the URL with the tweet text
         string tweetUrl = "http://twitter.com/intent/tweet?text=" + UnityWebRequest.EscapeURL(tweetText);
