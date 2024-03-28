@@ -6,6 +6,10 @@ using UnityEngine.UI;
 using DG;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.Networking;
+using UnityEngine.SocialPlatforms.Impl;
+using Newtonsoft.Json;
+using Unity.Services.Leaderboards;
 public class MainMenuController : MonoBehaviour
 {
     public static MainMenuController instance;
@@ -14,6 +18,7 @@ public class MainMenuController : MonoBehaviour
     public Button confirmRenameButton;
     public Button openLeaderboardButton;
     public Button closeLeaderboardButton;
+    public Button shareToX;
     public Transform leaderboardItemParent;
     public GameObject leaderboardPanel;
     public GameObject updateUsernamePanel;
@@ -93,6 +98,11 @@ public class MainMenuController : MonoBehaviour
             SoundManager.Instance.PlayClickSfx();
             Application.OpenURL("https://twitter.com/adarunnerz");
         });
+        shareToX.onClick.AddListener(delegate
+        {
+            SoundManager.Instance.PlayClickSfx();
+            LeaderboardManager.Instance.ShareToTwitter();
+        });
     }
     IEnumerator Waiter()
     {
@@ -106,4 +116,5 @@ public class MainMenuController : MonoBehaviour
             item.text = str;
         }
     }
+
 }

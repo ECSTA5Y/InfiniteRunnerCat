@@ -6,6 +6,8 @@ using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Leaderboards;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class LeaderboardManager : MonoBehaviour
@@ -144,5 +146,19 @@ public class LeaderboardManager : MonoBehaviour
         var versionScoresResponse =
             await LeaderboardsService.Instance.GetVersionScoresAsync(LeaderboardId, VersionId);
         Debug.Log(JsonConvert.SerializeObject(versionScoresResponse));
+    }
+    public async void ShareToTwitter()
+    {
+        var scoreResponse =
+       await LeaderboardsService.Instance.GetPlayerScoreAsync(LeaderboardId);
+        Debug.Log(JsonConvert.SerializeObject(scoreResponse));
+        // Customize your message with the score
+        string tweetText = "My score is: " + scoreResponse.Score.ToString() + " in this awesome game! #Unity #GameDev";
+
+        // Create the URL with the tweet text
+        string tweetUrl = "http://twitter.com/intent/tweet?text=" + UnityWebRequest.EscapeURL(tweetText);
+
+        // Open the Twitter share dialog in a web browser
+        Application.OpenURL(tweetUrl);
     }
 }
